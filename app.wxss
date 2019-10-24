@@ -1,0 +1,23 @@
+/* 全局引入 保证每个页面都能用到iconfont.wxss中的样式类 */
+@import "./styles/iconfont.wxss";
+
+/* 微信小程序中不支持通配符 */
+page,view,text,swiper,swiper-item,image,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 主题颜色 通过变量实现
+  1 less 存在变量知识
+  2 原生的css和wxss也是支持变量
+ */
+ page{
+   /* 定义主题颜色 */
+   --themeColor:#eb4450;
+   /* 定义统一字体大小 假设设计稿 大小 375px
+    1px=2rpx
+    14px=28rpx
+    */
+    font-size: 28rpx;
+ }

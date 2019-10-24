@@ -1,0 +1,43 @@
+<view class="pyg_index">
+  <!-- 搜索框开始-->
+    <SearchInput></SearchInput>
+  <!-- 搜索框结束-->
+  <!-- 楼层开始 -->
+  <view class="index_floor">
+      <view class="floor_group">
+        <!-- 标题 -->
+        <view class="floor_title">
+          <navigator 
+          wx:for="{{categoryList}}"
+          wx:for-item="item1"
+          wx:index="index1"
+          wx:key="cat_id"
+          >
+            {{item1.cat_name}}
+          </navigator> 
+        </view>
+        <!-- 标题 -->
+        <view class="floor_title">
+          <navigator 
+          wx:for="{{categoryList}}"
+          wx:for-item="item1"
+          wx:index="index1"
+          wx:key="cat_id"
+          >
+            {{item1.cat_name}}
+          </navigator> 
+        </view>
+        <!-- 内容 -->
+        <view class="floor_list">
+          <navigator  
+            wx:for="{{item1.children}}" 
+            wx:key="cat_id"
+          >
+          <image mode="{{index===0?'widthFix':'scaleToFill'}}" 
+          src="{{item.cat_icon}}"/>
+          </navigator>  
+        </view>
+      </view>
+    </view>
+  <!-- 楼层结束 -->
+</view>
