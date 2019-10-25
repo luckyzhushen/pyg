@@ -54,9 +54,9 @@
         <!-- 内容 -->
         <view class="floor_list">
           <navigator  
-        wx:for="{{item1.product_list}}" 
-        wx:key="name"
-        >
+          wx:for="{{item1.product_list}}" 
+          wx:key="name"
+          >
           <image mode="{{index===0?'widthFix':'scaleToFill'}}" src="{{item.image_src}}"></image>
           </navigator>  
         </view>
