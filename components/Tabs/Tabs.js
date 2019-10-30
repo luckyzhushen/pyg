@@ -23,7 +23,7 @@ Component({
   methods: {
     // 点击事件
     handleItemTab(e){
-      console.log(e);
+      // console.log(e);
       // 1 点击获取索引
       const {index} = e.currentTarget.dataset;
       // 触发父组件中的事件

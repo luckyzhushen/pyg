@@ -1,2 +1,70 @@
-<!--pages/goods_detail/goods_detail.wxml-->
-<text>pages/goods_detail/goods_detail.wxml</text>
+<!-- 轮播图开始-->
+    <view class="detail_swiper">
+    <!-- 
+      1 swiper标签存在默认的宽度和高度
+      100% 150px
+      2 image标签也存在默认的宽度和高度
+      320px 240px
+      3 设计图片和轮播图
+        1 先看原图宽高 750*340
+        2 让图片高度自适应 宽度100%
+        3 让swiper标签高度 变成和图片一样
+      4 图片标签
+        mode属性 渲染模式
+        widthFix图片标签宽高 和 图片标签的内容的宽高都等比例发生变化
+     -->
+      <swiper autoplay indicator-dots circular interval='3500'>
+        <swiper-item
+        wx:for="{{goodsObj.pics}}"
+        wx:key="pics_id"
+        bindtap="handlePreviewImage"
+        data-url="{{item.pics_mid}}"
+        >
+          <image mode="widthFix" src="{{item.pics_mid}}"/>
+        </swiper-item>
+      </swiper>
+    </view>
+  <!-- 轮播图结束-->
+  <view class="goods_price">¥{{goodsObj.goods_price}}</view>
+  <view class="goods_name_row">
+    <view class="goods_name">{{goodsObj.goods_name}}</view>
+    <view class="goods_collect" bindtap="handleCollect">
+      <text class="iconfont {{isCollect?'icon-shoucang1':'icon-shoucang'}}"></text>
+      <view class="collect_text">收藏</view>
+    </view>
+  </view>
+
+  <view class="goods_info">
+    <view class="goods_info_title">图文详情</view>
+    <view class="goods_info_content">
+      <!-- 富文本 -->
+      <!-- {{goodsObj.goods_introduce}} -->
+      <rich-text nodes="{{goodsObj.goods_introduce}}"></rich-text>
+    </view>
+  </view>
+  <!-- 底部工具栏 -->
+  <view class="btm_tool">
+    <view class="tool_item">
+      <view class="iconfont icon-kefu"></view>
+      <view>客服</view>
+      <button open-type="contact"></button>
+    </view>
+    <view class="tool_item">
+      <view class="iconfont icon-fenxiang-"></view>
+      <view>分享</view>
+      <button open-type="share"></button>
+    </view>
+    <navigator open-type="switchTab" url="/pages/cart/cart" class="tool_item">
+      <view class="iconfont icon-gouwuche1"></view>
+      <view>购物车</view>
+    </navigator>
+    <view class="tool_item btn_cart"
+      bindtap="handleCartAdd"
+    >
+      加入购物车
+    </view>
+    <view class="tool_item btn_buy">
+      立即购买
+    </view>
+  </view>
+  

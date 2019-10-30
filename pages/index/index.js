@@ -11,7 +11,9 @@ Page({
     //导航数组
     catesList:[],
     //楼层数据
-    floorList:[]
+    floorList:[],
+
+    navigator_url:""
   },
 
   /**
@@ -41,6 +43,7 @@ Page({
   getSwiperList(){
     request({ url: "/home/swiperdata"})
       .then(result => {
+
         this.setData({
           swiperList: result
         })
@@ -65,5 +68,14 @@ Page({
           floorList: result
         })
       });
+  },
+  handleQuery(e){
+    let navigator_url =  e.currentTarget.dataset.navigator_url.substring(30);
+    console.log('/pages/goods_list/goods_list?query='+navigator_url);
+    
+    wx.navigateTo({
+      url: '/pages/goods_list/goods_list?query='+navigator_url
+    })
   }
+  
 })
